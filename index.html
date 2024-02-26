@@ -12,9 +12,18 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-        <?php
-            include("home.php");
-        ?>
+ <div id="homeContent"></div>
+
+    <script>
+        // Fetch content from home.php
+        fetch('home.php')
+            .then(response => response.text())
+            .then(data => {
+                // Insert fetched content into the div with id "homeContent"
+                document.getElementById('homeContent').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching content:', error));
+    </script>
 
 </body>
 </html>
